@@ -9,7 +9,7 @@ class Location(object):
 
 
 class Sender(object):
-    def __init__(self, id: str, name: str, avatar: str, country: str, language: str):
+    def __init__(self, id: str, name: str, avatar: str, country: str, language: str, api_version):
         if not isinstance(id, str):
             raise TypeError('id must be an instance of str')
         if not isinstance(name, str):
@@ -25,6 +25,7 @@ class Sender(object):
         self.avatar = avatar
         self.country = country
         self.language = language
+        self.api_version = api_version
 
 
 class IncomingMessage(object):
