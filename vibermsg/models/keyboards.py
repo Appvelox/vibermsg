@@ -1,6 +1,7 @@
 class Button(object):
-    def __init__(self, action_body: str, text: str, bgColor: str = '#ffffff', rows: int = 1, columns: int = 6,
-                 action_type: str = 'reply', text_size: str = 'regular', textopacity: int = 100):
+    def __init__(self, text: str, action_body: str, bg_сolor: str = '#ffffff', rows: int = 1, columns: int = 6,
+                 action_type: str = 'reply', text_size: str = 'regular', textopacity: int = 100,
+                 textvalign: str = 'middle', texthalign='center'):
         if not isinstance(action_body, str):
             raise TypeError('action_body must be an instance of str')
         if not isinstance(text, str):
@@ -9,7 +10,7 @@ class Button(object):
             raise TypeError('columns must be an instance of int')
         if not isinstance(rows, int):
             raise TypeError('rows must be an instance of int')
-        if not isinstance(bgColor, str):
+        if not isinstance(bg_сolor, str):
             raise TypeError('bgColor must be an instance of str')
         if not isinstance(action_type, str):
             raise TypeError('action_type must be an instance of str')
@@ -17,22 +18,26 @@ class Button(object):
             raise TypeError('textopacity must be an instance of int')
         if not isinstance(text_size, str):
             raise TypeError('text_size must be an instance of str')
+        if not isinstance(textvalign, str):
+            raise TypeError('textvalign must be an instance of str')
+        if not isinstance(texthalign, str):
+            raise TypeError('texthalign must be an instance of str')
         self.columns = columns
         self.rows = rows
-        self.bgColor = bgColor
+        self.bg_color = bg_сolor
         self.action_type = action_type
         self.action_body = action_body
         self.text = text
-        self.textvalign = 'middle'
-        self.texthalign = 'center'
+        self.textvalign = textvalign
+        self.texthalign = texthalign
         self.textopacity = textopacity
         self.text_size = text_size
 
-    def te_dict(self):
+    def to_dict(self):
         return {
             'Columns': self.columns,
             'Rows': self.rows,
-            'BgColor': self.bgColor,
+            'BgColor': self.bg_color,
             'ActionType': self.action_type,
             'ActionBody': self.action_body,
             'Text': self.text,
