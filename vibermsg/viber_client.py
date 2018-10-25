@@ -45,7 +45,7 @@ class ViberClient(object):
             self.conversation_started_processor(request)
             return None
         if msg_json['event'] == 'message':
-            sender = _requests.Sender(**msg_json['user'])
+            sender = _requests.Sender(**msg_json['sender'])
             if msg_json['message']['type'] == 'text':
                 if not self.text_message_processor:
                     raise AttributeError('text_message_processor not declared')
