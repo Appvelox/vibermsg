@@ -1,7 +1,7 @@
 class Button(object):
-    def __init__(self, text: str, action_body: str, bg_сolor: str = '#ffffff', rows: int = 1, columns: int = 6,
+    def __init__(self, text: str, action_body: str, bg_color: str = '#ffffff', rows: int = 1, columns: int = 6,
                  action_type: str = 'reply', text_size: str = 'regular', textopacity: int = 100,
-                 textvalign: str = 'middle', texthalign='center'):
+                 textvalign: str = 'middle', texthalign: str ='center'):
         if not isinstance(action_body, str):
             raise TypeError('action_body must be an instance of str')
         if not isinstance(text, str):
@@ -10,7 +10,7 @@ class Button(object):
             raise TypeError('columns must be an instance of int')
         if not isinstance(rows, int):
             raise TypeError('rows must be an instance of int')
-        if not isinstance(bg_сolor, str):
+        if not isinstance(bg_color, str):
             raise TypeError('bgColor must be an instance of str')
         if not isinstance(action_type, str):
             raise TypeError('action_type must be an instance of str')
@@ -24,7 +24,7 @@ class Button(object):
             raise TypeError('texthalign must be an instance of str')
         self.columns = columns
         self.rows = rows
-        self.bg_color = bg_сolor
+        self.bg_color = bg_color
         self.action_type = action_type
         self.action_body = action_body
         self.text = text
@@ -68,6 +68,7 @@ class Keyboard(object):
     def add(self, button: Button):
         if not isinstance(button, Button):
             raise TypeError('event_types must be an instance of Button')
+        self.buttons.append(button)
 
     def to_dict(self):
         return {
