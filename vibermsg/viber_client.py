@@ -38,7 +38,7 @@ class ViberClient(object):
         if not isinstance(msg_json['event'], str):
             raise TypeError('msg_json.type must be an instance of str')
         if msg_json['event'] == 'conversation_started':
-            if not self.text_message_processor:
+            if not self.conversation_started_processor:
                 raise AttributeError('conversation_started_processor not declared')
             sender = _requests.Sender(**msg_json['user'])
             request = _requests.ConversationStartedRequest(sender=sender, message_token=msg_json['message_token'])

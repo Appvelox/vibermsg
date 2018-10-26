@@ -3,7 +3,7 @@ from .keyboards import Keyboard
 
 class Message(object):
     def to_dict(self):
-        pass
+        return {}
 
 
 class TextMessage(Message):

@@ -1,7 +1,7 @@
 import pytest
 
 from vibermsg.models.keyboards import Button, Keyboard
-from vibermsg.models.messages import TextMessage
+from vibermsg.models.messages import TextMessage, Message
 from vibermsg.models.requests import (Sender, Location, ConversationStartedRequest, TextMessageRequest, IncomingTextMessage)
 
 
@@ -89,6 +89,10 @@ class TestKeybooards:
 
 
 class TestMessages:
+    def test_Message(self):
+        m = Message()
+        assert m.to_dict() == {}
+
     def test_TextMessage(self):
         button = Button('test', 'test')
         keyboard = Keyboard([button])
