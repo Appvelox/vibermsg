@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/AppVelox/vibermsg",
-    packages=setuptools.find_packages(exclude=['tests*']),
+    packages=setuptools.find_packages(exclude=['tests*', 'examples*']),
     classifiers=[
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3.6",
